@@ -15,12 +15,13 @@ public class CameraController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {   
+    {
         // Surely you can just increase the y-position by player speed instead of this shit, 
         // while keeping y position constant? Or if y pos was to be updated w/ player, just
         // attach camera as child of Player
-        distanceToMove = thePlayer.transform.position.x - lastPlayerPosition.x;
-        transform.position = new Vector3(transform.position.x + distanceToMove, transform.position.y, transform.position.z);
-        lastPlayerPosition = thePlayer.transform.position;
+        // distanceToMove = thePlayer.transform.position.x - lastPlayerPosition.x;
+        // transform.position = new Vector3(transform.position.x + distanceToMove, transform.position.y, transform.position.z);
+        // lastPlayerPosition = thePlayer.transform.position;
+        transform.position = new Vector3(thePlayer.transform.position.x, transform.position.y, transform.position.z);
     }
 }
