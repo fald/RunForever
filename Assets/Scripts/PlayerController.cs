@@ -6,21 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
-    public int numJumps;
+    private int numJumps;
     public int maxJumps;
 
     public bool grounded;
     public LayerMask groundLayer;
-
-    // Collider as opposed to box collider for generalization
     private Collider2D myCollider;
-
     private Rigidbody2D myRigidBody; // ;)
+
+    private Animator myAnimator;
 
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
+        myAnimator = GetComponent<Animator>();
         numJumps = maxJumps;
     }
 
@@ -39,5 +39,8 @@ public class PlayerController : MonoBehaviour
             numJumps--;
             myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
         }
+
+        myAnimator.SetFloat("Speed", moveSpeed);
+        myAnimator.SetBool("Grounded", grounded);
     }
 }
