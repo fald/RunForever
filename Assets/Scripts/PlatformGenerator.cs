@@ -12,6 +12,8 @@ public class PlatformGenerator : MonoBehaviour
     public float distanceMin;
     public float distanceMax;
 
+    public ObjectPooler pooler;
+
     void Start()
     {
         platformWidth = platform.GetComponent<BoxCollider2D>().size.x;    
@@ -24,7 +26,11 @@ public class PlatformGenerator : MonoBehaviour
         if (transform.position.x < generationPoint.position.x)
         {
             transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.z);
-            Instantiate(platform, transform.position, transform.rotation);
+            //Instantiate(platform, transform.position, transform.rotation);
+            GameObject newPlatform = (GameObject)pooler.GetPooledObject();
+            newPlatform.transform.position = transform.position;
+            newPlatform.transform.rotation = transform.rotation;
+            newPlatform.SetActive(true);
         }
     }
 }
