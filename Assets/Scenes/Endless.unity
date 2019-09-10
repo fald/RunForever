@@ -430,7 +430,6 @@ MonoBehaviour:
   platform: {fileID: 710074193305717476, guid: 923431c9251e112428b6c6061af4ae55, type: 3}
   distanceMin: 1
   distanceMax: 3
-  pooler: {fileID: 567409763}
 --- !u!4 &1256248622
 Transform:
   m_ObjectHideFlags: 0
@@ -615,13 +614,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
-      propertyPath: moveSpeed
-      value: 5
+      propertyPath: maxJumps
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
-      propertyPath: jumpForce
-      value: 15
+      propertyPath: moveSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1a2cf4823edc94fb911ccab873cda4, type: 3}

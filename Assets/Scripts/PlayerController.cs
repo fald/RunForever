@@ -6,9 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
-    private int numJumps;
+    public int numJumps;
     public int maxJumps;
 
+    public bool prevGrounded;
     public bool grounded;
     public LayerMask groundLayer;
     private Collider2D myCollider;
@@ -21,22 +22,28 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
-        numJumps = maxJumps;
+        numJumps = 0;
+        grounded = false;
+        prevGrounded = false;
     }
 
     void FixedUpdate()
     {
+        prevGrounded = grounded;
         grounded = Physics2D.IsTouchingLayers(myCollider, groundLayer);
-        if (grounded)
+        if (!prevGrounded && grounded)
         {
-            numJumps = maxJumps;
+            numJumps = 0;
         }
 
         myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && (numJumps > 0))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && 
+            // attempt at fixing that damn bug
+            //(grounded || (!grounded && numJumps < maxJumps && numJumps > 0)))
+            (numJumps < maxJumps))
         {
-            numJumps--;
+            numJumps++;
             myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
         }
 
