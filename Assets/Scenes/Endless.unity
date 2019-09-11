@@ -428,8 +428,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generationPoint: {fileID: 108452279}
   platform: {fileID: 710074193305717476, guid: 923431c9251e112428b6c6061af4ae55, type: 3}
+  platforms:
+  - {fileID: 710074193305717476, guid: f9acc0a2a330d434a9ae75237fa78bd2, type: 3}
+  - {fileID: 710074193305717476, guid: f7e03ffb0f3b04d4ab0588bf98969d3b, type: 3}
+  - {fileID: 710074193305717476, guid: 923431c9251e112428b6c6061af4ae55, type: 3}
+  - {fileID: 710074193305717476, guid: efb39faabed82e64c92bacdb76795bc1, type: 3}
   distanceMin: 1
   distanceMax: 3
+  pooler: {fileID: 0}
 --- !u!4 &1256248622
 Transform:
   m_ObjectHideFlags: 0
@@ -615,12 +621,12 @@ PrefabInstance:
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: maxJumps
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: moveSpeed
-      value: 0.1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1a2cf4823edc94fb911ccab873cda4, type: 3}

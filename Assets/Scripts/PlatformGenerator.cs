@@ -5,23 +5,29 @@ using UnityEngine;
 public class PlatformGenerator : MonoBehaviour
 {
     public Transform generationPoint;
+
     public GameObject platform;
+    public GameObject[] platforms;
+    private int platformChoice;
     private float platformWidth;
 
     private float distanceBetween;
     public float distanceMin;
     public float distanceMax;
 
-    // public ObjectPooler pooler;
+    public ObjectPooler pooler;
 
     void Start()
     {
-        platformWidth = platform.GetComponent<BoxCollider2D>().size.x;    
     }
 
     void FixedUpdate()
     {
         distanceBetween = Random.Range(distanceMin, distanceMax);
+        platformChoice = Random.Range(0, platforms.Length);
+        platform = platforms[platformChoice];
+        platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
+
 
         if (transform.position.x < generationPoint.position.x)
         {
