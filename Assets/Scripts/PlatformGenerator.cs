@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlatformGenerator : MonoBehaviour
 {
+    public int message;
+
     public Transform generationPoint;
 
     private GameObject platform;
-    public GameObject[] platforms;
+    //public GameObject[] platforms;
     private int platformChoice;
     private float platformWidth;
 
@@ -15,7 +17,7 @@ public class PlatformGenerator : MonoBehaviour
     public float distanceMin;
     public float distanceMax;
 
-    public ObjectPooler pooler;
+    public ObjectPooler[] pools;
 
     void Start()
     {
@@ -26,18 +28,19 @@ public class PlatformGenerator : MonoBehaviour
         if (transform.position.x < generationPoint.position.x)
         {
             distanceBetween = Random.Range(distanceMin, distanceMax);
-            platformChoice = Random.Range(0, platforms.Length);
-            platform = platforms[platformChoice];
-            platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
+            platformChoice = Random.Range(0, pools.Length);
+            //platform = pools.pooledObject[platformChoice];
 
             transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.z);
-            Instantiate(platform, transform.position, transform.rotation);
-           /* Pooler stuff 
-            GameObject newPlatform = (GameObject)pooler.GetPooledObject();
-            newPlatform.transform.position = transform.position;
-            newPlatform.transform.rotation = transform.rotation;
-            newPlatform.SetActive(true);
-            */
+            //Instantiate(platform, transform.position, transform.rotation);
+
+            platform = (GameObject)pools[platformChoice].GetPooledObject();
+            platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
+
+            platform.transform.position = transform.position;
+            platform.transform.rotation = transform.rotation;
+            platform.SetActive(true);
+            
         }
     }
 }
