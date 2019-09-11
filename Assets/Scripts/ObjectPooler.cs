@@ -8,9 +8,11 @@ public class ObjectPooler : MonoBehaviour
     // not really needed with the impromptu extending thats going on.
     public int poolSize;
     List<GameObject> pool;
+    public GameObject parent;
 
     void Start()
     {
+        parent = GameObject.Find("Platforms");
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {
@@ -21,6 +23,7 @@ public class ObjectPooler : MonoBehaviour
     private GameObject addObject()
     {
         GameObject obj = (GameObject)Instantiate(pooledObject);
+        obj.transform.parent = parent.transform;
         obj.SetActive(false);
         pool.Add(obj);
         return obj;

@@ -315,6 +315,7 @@ MonoBehaviour:
   pooledObject: {fileID: 710074193305717476, guid: f9acc0a2a330d434a9ae75237fa78bd2,
     type: 3}
   poolSize: 1
+  parent: {fileID: 1669530863}
 --- !u!4 &567409764
 Transform:
   m_ObjectHideFlags: 0
@@ -361,6 +362,7 @@ MonoBehaviour:
   pooledObject: {fileID: 710074193305717476, guid: 923431c9251e112428b6c6061af4ae55,
     type: 3}
   poolSize: 1
+  parent: {fileID: 1669530863}
 --- !u!4 &618557203
 Transform:
   m_ObjectHideFlags: 0
@@ -407,6 +409,7 @@ MonoBehaviour:
   pooledObject: {fileID: 710074193305717476, guid: f7e03ffb0f3b04d4ab0588bf98969d3b,
     type: 3}
   poolSize: 1
+  parent: {fileID: 1669530863}
 --- !u!4 &781329449
 Transform:
   m_ObjectHideFlags: 0
@@ -574,6 +577,7 @@ MonoBehaviour:
   pooledObject: {fileID: 710074193305717476, guid: efb39faabed82e64c92bacdb76795bc1,
     type: 3}
   poolSize: 1
+  parent: {fileID: 1669530863}
 --- !u!4 &1287418966
 Transform:
   m_ObjectHideFlags: 0
