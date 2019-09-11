@@ -6,7 +6,7 @@ public class PlatformGenerator : MonoBehaviour
 {
     public Transform generationPoint;
 
-    public GameObject platform;
+    private GameObject platform;
     public GameObject[] platforms;
     private int platformChoice;
     private float platformWidth;
@@ -23,14 +23,13 @@ public class PlatformGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        distanceBetween = Random.Range(distanceMin, distanceMax);
-        platformChoice = Random.Range(0, platforms.Length);
-        platform = platforms[platformChoice];
-        platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
-
-
         if (transform.position.x < generationPoint.position.x)
         {
+            distanceBetween = Random.Range(distanceMin, distanceMax);
+            platformChoice = Random.Range(0, platforms.Length);
+            platform = platforms[platformChoice];
+            platformWidth = platform.GetComponent<BoxCollider2D>().size.x;
+
             transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.z);
             Instantiate(platform, transform.position, transform.rotation);
            /* Pooler stuff 
