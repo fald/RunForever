@@ -524,7 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 0
   generationPoint: {fileID: 108452279}
-  distanceMin: 2
+  distanceMin: 1
   distanceMax: 4
   pools:
   - {fileID: 567409763}
@@ -539,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256248620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: 0, z: 0}
+  m_LocalPosition: {x: 14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -679,7 +679,7 @@ Transform:
   - {fileID: 301274493}
   - {fileID: 483896981}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921428655
 GameObject:
@@ -713,7 +713,7 @@ Transform:
   - {fileID: 618557203}
   - {fileID: 1287418966}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &710074193065926552
 PrefabInstance:
@@ -834,7 +834,7 @@ PrefabInstance:
     - target: {fileID: 2828379282873567000, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567000, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}

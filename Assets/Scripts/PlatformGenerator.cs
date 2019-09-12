@@ -31,7 +31,10 @@ public class PlatformGenerator : MonoBehaviour
             platformChoice = Random.Range(0, pools.Length);
             //platform = pools.pooledObject[platformChoice];
 
-            transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.z);
+            transform.position = new Vector3(
+                transform.position.x + (platformWidth / 2) + distanceBetween, 
+                transform.position.y,
+                transform.position.z);
             //Instantiate(platform, transform.position, transform.rotation);
 
             platform = (GameObject)pools[platformChoice].GetPooledObject();
@@ -40,7 +43,12 @@ public class PlatformGenerator : MonoBehaviour
             platform.transform.position = transform.position;
             platform.transform.rotation = transform.rotation;
             platform.SetActive(true);
-            
+
+            // Move transform along so as to avoid overlaps; I did -something- wrong here, but eh.
+            transform.position = new Vector3(
+                transform.position.x + (platformWidth / 2),
+                transform.position.y,
+                transform.position.z);
         }
     }
 }
