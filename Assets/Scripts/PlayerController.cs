@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     public int numJumps;
     public int maxJumps;
 
+    // Point to inc speed
+    public float speedIncreaseMilestone;
+    // How much to inc speed
+    public float speedIncreaseAmount;
+    // How far since prev milestone to inc speed
+    public float speedIncreaseDistance;
+
     public float jumpTime;
     private float jumpTimeCounter;
 
@@ -28,10 +35,16 @@ public class PlayerController : MonoBehaviour
         numJumps = 0;
         grounded = false;
         prevGrounded = false;
+        speedIncreaseMilestone = speedIncreaseDistance;
     }
 
     void Update()
     {
+        if (transform.position.x > speedIncreaseMilestone)
+        {
+            speedIncreaseMilestone += speedIncreaseDistance;
+            moveSpeed += speedIncreaseAmount;
+        }
         prevGrounded = grounded;
         grounded = Physics2D.IsTouchingLayers(myCollider, groundLayer);
         if (!prevGrounded && grounded)
