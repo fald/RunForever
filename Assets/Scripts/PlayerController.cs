@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public int numJumps;
     public int maxJumps;
 
+    public float jumpTime;
+    private float jumpTimeCounter;
+
     public bool prevGrounded;
     public bool grounded;
     public LayerMask groundLayer;
@@ -34,10 +37,12 @@ public class PlayerController : MonoBehaviour
         if (!prevGrounded && grounded)
         {
             numJumps = 0;
+            jumpTimeCounter = jumpTime;
         }
 
         myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
 
+        // Initial press
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && 
             // attempt at fixing that damn bug
             //(grounded || (!grounded && numJumps < maxJumps && numJumps > 0)))
@@ -45,6 +50,16 @@ public class PlayerController : MonoBehaviour
         {
             numJumps++;
             myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
+        }
+
+        // Holding
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && (!grounded))
+        {
+            if (jumpTimeCounter > 0)
+            {
+                myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
+            }
         }
 
         myAnimator.SetFloat("Speed", moveSpeed);
