@@ -21,8 +21,17 @@ public class PlatformGenerator : MonoBehaviour
 
     public ObjectPooler[] pools;
 
+    private float minHeight;
+    public Transform maxHeightPoint;
+    private float maxHeight;
+    public float maxHeightChange;
+    private float heightChange;
+
+
     void Start()
     {
+        minHeight = transform.position.y; // Platform generator starts here, but not forced, just happens to.
+        maxHeight = maxHeightPoint.position.y;
     }
 
     void FixedUpdate()
@@ -32,10 +41,14 @@ public class PlatformGenerator : MonoBehaviour
             distanceBetween = Random.Range(distanceMin, distanceMax);
             platformChoice = Random.Range(0, pools.Length);
             //platform = pools.pooledObject[platformChoice];
+            heightChange = transform.position.y + Random.Range(-maxHeightChange, maxHeightChange);
+            heightChange = Mathf.Max(Mathf.Min(maxHeight, heightChange), 0);
+
 
             transform.position = new Vector3(
-                transform.position.x + (platformWidth / 2) + distanceBetween, 
-                transform.position.y,
+                transform.position.x + (platformWidth / 2) + distanceBetween,
+                //transform.position.y,
+                heightChange,
                 transform.position.z);
             //Instantiate(platform, transform.position, transform.rotation);
 
