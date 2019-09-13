@@ -184,6 +184,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1039829108}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &487062636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2828379282873567000, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2828379282426274029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &488967161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488967162}
+  m_Layer: 9
+  m_Name: Ground Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &488967162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488967161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 487062636}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628366070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: -6, z: 0}
+  m_LocalPosition: {x: 3, y: -7, z: 0}
   m_LocalScale: {x: 30, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -902,7 +938,7 @@ PrefabInstance:
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: speedIncreaseMilestone
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
@@ -917,7 +953,17 @@ PrefabInstance:
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: speedIncreaseDistance
-      value: 10
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 488967162}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1a2cf4823edc94fb911ccab873cda4, type: 3}

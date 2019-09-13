@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float speedIncreaseAmount;
     // How far since prev milestone to inc speed
     public float speedIncreaseDistance;
+    // Also can have milestone dist increases, or speed multipliers instead of additive, but I won't
+    // bother at this point.
 
     public float jumpTime;
     private float jumpTimeCounter;
@@ -24,6 +26,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     private Collider2D myCollider;
     private Rigidbody2D myRigidBody; // ;)
+    // Not a fan of the circle, but yeah
+    public Transform groundCheck;
+    public float groundCheckRadius;
 
     private Animator myAnimator;
 
@@ -46,7 +51,8 @@ public class PlayerController : MonoBehaviour
             moveSpeed += speedIncreaseAmount;
         }
         prevGrounded = grounded;
-        grounded = Physics2D.IsTouchingLayers(myCollider, groundLayer);
+        //grounded = Physics2D.IsTouchingLayers(myCollider, groundLayer);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (!prevGrounded && grounded)
         {
             numJumps = 0;

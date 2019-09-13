@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO: Fix platform spacing.
+// TODO: Further update platform spacing to take into account player movespeed.
 
 public class PlatformGenerator : MonoBehaviour
 {
