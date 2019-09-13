@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: Fix platform spacing.
+
 public class PlatformGenerator : MonoBehaviour
 {
     public int message;

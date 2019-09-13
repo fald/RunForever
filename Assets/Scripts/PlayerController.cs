@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         prevGrounded = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         prevGrounded = grounded;
         grounded = Physics2D.IsTouchingLayers(myCollider, groundLayer);
