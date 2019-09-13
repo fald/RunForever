@@ -62,7 +62,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        myAnimator.SetFloat("Speed", moveSpeed);
+        // Releasing
+        // In this case we stop the spam-jump, and the jump length can only be modified
+        // on the first jump in the chain.
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)))
+        {
+            jumpTimeCounter = 0;
+        }
+
+            myAnimator.SetFloat("Speed", moveSpeed);
         myAnimator.SetBool("Grounded", grounded);
     }
 }
