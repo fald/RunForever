@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
     private Vector3 playerStartLocation;
 
+    //public GameObject[] initialPlatforms;
+    //public GameObject platforms;
+    public Transform platforms;
+
     void Start()
     {
         platformStartLocation = platformGenerator.position;
@@ -32,5 +36,16 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         player.transform.position = playerStartLocation;
         platformGenerator.position = platformStartLocation;
+        for (int i = 0; i < platforms.transform.childCount; i++)
+        {
+            if (i == 0 || i == 1)
+            {
+                platforms.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                platforms.GetChild(i).gameObject.SetActive(false);
+            }
+        }
     }
 }

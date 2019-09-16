@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager gameManager;
     public float moveSpeed;
     public float jumpForce;
     public int numJumps;
@@ -91,5 +92,13 @@ public class PlayerController : MonoBehaviour
 
             myAnimator.SetFloat("Speed", moveSpeed);
         myAnimator.SetBool("Grounded", grounded);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "killbox")
+        {
+            gameManager.RestartGame();
+        }
     }
 }
