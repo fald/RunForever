@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// TODO: Game reset needs to keep track of high score, so fix that to do so.
+
 public class GameManager : MonoBehaviour
 {
     public Transform platformGenerator;
