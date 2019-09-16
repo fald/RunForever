@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
     public float moveSpeed;
+    public float initSpeed;
     public float jumpForce;
     public int numJumps;
     public int maxJumps;
@@ -33,7 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator myAnimator;
 
-    void Start()
+//    void Start()
+    void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         grounded = false;
         prevGrounded = false;
         speedIncreaseMilestone = speedIncreaseDistance;
+        moveSpeed = initSpeed;
     }
 
     void Update()

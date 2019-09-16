@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         // could set player inactive then active after, but why. just lower the kill zone.
         yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        /*
         player.transform.position = playerStartLocation;
         platformGenerator.position = platformStartLocation;
         for (int i = 0; i < platforms.transform.childCount; i++)
@@ -47,5 +50,6 @@ public class GameManager : MonoBehaviour
                 platforms.GetChild(i).gameObject.SetActive(false);
             }
         }
+        */
     }
 }

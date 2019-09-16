@@ -991,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: moveSpeed
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
@@ -1033,5 +1033,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1111043033}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: initSpeed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1a2cf4823edc94fb911ccab873cda4, type: 3}
