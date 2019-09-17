@@ -41,12 +41,13 @@ public class GameManager : MonoBehaviour
         // could set player inactive then active after, but why. just lower the kill zone.
         scoreManager.scoreIncreasing = false;
         player.gameObject.SetActive(false);
+        PlayerPrefs.SetFloat("highScore", scoreManager.highScore);
 
         yield return new WaitForSeconds(0.5f);
 
         // unfortunately, not great for keeping track of high score; boo.
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        /*
         for (int i = 0; i < platforms.transform.childCount; i++)
         {
             if (i == 0 || i == 1)
@@ -64,5 +65,6 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         scoreManager.score = 0;
         scoreManager.scoreIncreasing = true;
+        */
     }
 }

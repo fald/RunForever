@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        
+        highScore = PlayerPrefs.GetFloat("highScore");
     }
 
     void Update()
