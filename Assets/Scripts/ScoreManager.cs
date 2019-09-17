@@ -22,9 +22,17 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        score += pointsPerSecond * Time.deltaTime;
+        if (scoreIncreasing)
+        {
+            score += pointsPerSecond * Time.deltaTime;
+        }
 
-        scoreText.text = "Score: " + score;
-        highScoreText.text = "High Score: " + highScore;
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
+        scoreText.text = "Score: " + score.ToString("F1");
+        highScoreText.text = "High Score: " + highScore.ToString("F1");
     }
 }

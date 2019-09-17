@@ -212,7 +212,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'SCORE: '
+  m_Text: 'SCORE: 0'
 --- !u!222 &111838361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -620,9 +620,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 111838360}
   highScoreText: {fileID: 805708723}
-  score: 1
-  highScore: 5
-  pointsPerDistance: 1
+  score: 0
+  highScore: 0
+  pointsPerSecond: 1
   scoreIncreasing: 1
 --- !u!1 &781329447
 GameObject:
@@ -741,7 +741,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HIGH SCORE:'
+  m_Text: 'HIGH SCORE: 0'
 --- !u!222 &805708724
 CanvasRenderer:
   m_ObjectHideFlags: 0

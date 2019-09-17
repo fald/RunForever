@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
     private Vector3 playerStartLocation;
 
+    private ScoreManager scoreManager;
+
     //public GameObject[] initialPlatforms;
     //public GameObject platforms;
     public Transform platforms;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         platformStartLocation = platformGenerator.position;
         playerStartLocation = player.transform.position;
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     void Update()
@@ -36,11 +39,14 @@ public class GameManager : MonoBehaviour
     public IEnumerator RestartGameCoroutine()
     {
         // could set player inactive then active after, but why. just lower the kill zone.
+        scoreManager.scoreIncreasing = false;
+        player.gameObject.SetActive(false);
+
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        /*
-        player.transform.position = playerStartLocation;
-        platformGenerator.position = platformStartLocation;
+
+        // unfortunately, not great for keeping track of high score; boo.
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         for (int i = 0; i < platforms.transform.childCount; i++)
         {
             if (i == 0 || i == 1)
@@ -52,6 +58,11 @@ public class GameManager : MonoBehaviour
                 platforms.GetChild(i).gameObject.SetActive(false);
             }
         }
-        */
+
+        player.transform.position = playerStartLocation;
+        platformGenerator.position = platformStartLocation;
+        player.gameObject.SetActive(true);
+        scoreManager.score = 0;
+        scoreManager.scoreIncreasing = true;
     }
 }
