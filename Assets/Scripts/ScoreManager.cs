@@ -35,4 +35,9 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString("F1");
         highScoreText.text = "High Score: " + highScore.ToString("F1");
     }
+
+    public void IncreaseScore(int scoreIncrease)
+    {
+        score += pointsPerSecond * scoreIncrease;
+    }
 }
