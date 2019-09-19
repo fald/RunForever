@@ -23,7 +23,7 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            scoreManager.IncreaseScore(10);
+            scoreManager.IncreaseScore(scoreAdd);
             this.gameObject.SetActive(false);
         }
     }
