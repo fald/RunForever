@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public int numJumps;
     public int maxJumps;
+    public float fallMultiplier;
+    public float lowFallMultiplier;
 
     // Point to inc speed
     public float speedIncreaseMilestone;
@@ -34,12 +36,15 @@ public class PlayerController : MonoBehaviour
 
     private Animator myAnimator;
 
-//    void Start()
-    void Awake()
+    void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
+    }
+
+    void Awake()
+    {
         numJumps = 0;
         grounded = false;
         prevGrounded = false;
@@ -63,10 +68,28 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
         }
 
-        myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
+        myRigidBody.velocity += Vector2.right * (moveSpeed) * Time.deltaTime;
 
+
+        Jump();
+
+
+        myAnimator.SetFloat("Speed", moveSpeed);
+        myAnimator.SetBool("Grounded", grounded);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "killbox")
+        {
+            gameManager.RestartGame();
+        }
+    }
+
+    void Jump()
+    {
         // Initial press
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && 
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) &&
             // attempt at fixing that damn bug
             //(grounded || (!grounded && numJumps < maxJumps && numJumps > 0)))
             (numJumps < maxJumps))
@@ -84,24 +107,13 @@ public class PlayerController : MonoBehaviour
                 jumpTimeCounter -= Time.deltaTime;
             }
         }
-
-        // Releasing
+            // Releasing
         // In this case we stop the spam-jump, and the jump length can only be modified
         // on the first jump in the chain.
         if ((Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)))
         {
             jumpTimeCounter = 0;
         }
-
-            myAnimator.SetFloat("Speed", moveSpeed);
-        myAnimator.SetBool("Grounded", grounded);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "killbox")
-        {
-            gameManager.RestartGame();
-        }
-    }
+        
 }
