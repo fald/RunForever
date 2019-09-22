@@ -70,8 +70,15 @@ public class PlayerController : MonoBehaviour
 
         myRigidBody.velocity += Vector2.right * (moveSpeed) * Time.deltaTime;
 
+        if (myRigidBody.velocity.y < 0)
+        {
+            myRigidBody.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (fallMultiplier - 1);
+        } else if (myRigidBody.velocity.y > 0 && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)))
+        {
+            myRigidBody.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (lowFallMultiplier - 1);
+        }
 
-        Jump();
+        //Jump();
 
 
         myAnimator.SetFloat("Speed", moveSpeed);
