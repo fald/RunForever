@@ -1309,6 +1309,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1111043033}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: fallMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: lowFallMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 815039083}
+    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
+        type: 3}
+      propertyPath: initSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2828379282873567000, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1363,31 +1388,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
-        type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1111043033}
-    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
-        type: 3}
-      propertyPath: fallMultiplier
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
-        type: 3}
-      propertyPath: lowFallMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
-        type: 3}
-      propertyPath: groundCheck
-      value: 
-      objectReference: {fileID: 815039083}
-    - target: {fileID: 2828379282873567003, guid: 5f1a2cf4823edc94fb911ccab873cda4,
-        type: 3}
-      propertyPath: initSpeed
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5656976834851087467, guid: 5f1a2cf4823edc94fb911ccab873cda4,
         type: 3}

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: The jumping code is ugly, fix it.
+
 public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
@@ -68,8 +70,8 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
         }
 
-        myRigidBody.velocity += Vector2.right * (moveSpeed) * Time.deltaTime;
-
+        myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
+        /*
         if (myRigidBody.velocity.y < 0)
         {
             myRigidBody.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (fallMultiplier - 1);
@@ -77,8 +79,9 @@ public class PlayerController : MonoBehaviour
         {
             myRigidBody.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (lowFallMultiplier - 1);
         }
+        */
 
-        //Jump();
+        Jump();
 
 
         myAnimator.SetFloat("Speed", moveSpeed);
@@ -97,8 +100,6 @@ public class PlayerController : MonoBehaviour
     {
         // Initial press
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) &&
-            // attempt at fixing that damn bug
-            //(grounded || (!grounded && numJumps < maxJumps && numJumps > 0)))
             (numJumps < maxJumps))
         {
             numJumps++;
@@ -114,7 +115,8 @@ public class PlayerController : MonoBehaviour
                 jumpTimeCounter -= Time.deltaTime;
             }
         }
-            // Releasing
+        
+        // Releasing
         // In this case we stop the spam-jump, and the jump length can only be modified
         // on the first jump in the chain.
         if ((Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)))
