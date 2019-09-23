@@ -12,7 +12,7 @@ public class ObjectPooler : MonoBehaviour
 
     void Start()
     {
-        parent = GameObject.Find("Platforms");
+        //parent = GameObject.Find("Platforms");
         pool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
         {

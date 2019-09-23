@@ -828,6 +828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1097984779}
+  - component: {fileID: 1097984780}
   m_Layer: 0
   m_Name: Coin Generator
   m_TagString: Untagged
@@ -851,6 +852,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1097984780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097984778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b240ad1f4fa8ce8439a4042c2a965ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPool: {fileID: 1976577129}
 --- !u!1 &1111043032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1052,7 @@ MonoBehaviour:
   - {fileID: 1287418965}
   maxHeightPoint: {fileID: 1410001357}
   maxHeightChange: 4
+  coinGenerator: {fileID: 1097984780}
 --- !u!4 &1256248622
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 8553175454611891978, guid: 93c24136103a4444b8a4b89e285a5792,
     type: 3}
-  poolSize: 5
+  poolSize: 15
   parent: {fileID: 176540893}
 --- !u!1001 &710074193065926552
 PrefabInstance:

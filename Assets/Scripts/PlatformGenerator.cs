@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: Fix platform spacing.
+// TODO: Fix platform spacing. Rolling check for platform sizes to determine spacing?
 // TODO: Further update platform spacing to take into account player movespeed.
+// TODO: Better coin placement
+// TODO: Coin placement bug; might be fixed by above todo. 'transform.position assign attempt for 'Coin(Clone)' is not valid. Input position is { NaN, NaN, 0.000000 }."
 
 public class PlatformGenerator : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class PlatformGenerator : MonoBehaviour
     public float maxHeightChange;
     private float heightChange;
 
+    public CoinGenerator coinGenerator;
 
     void Start()
     {
@@ -59,6 +62,11 @@ public class PlatformGenerator : MonoBehaviour
             platform.transform.position = transform.position;
             platform.transform.rotation = transform.rotation;
             platform.SetActive(true);
+
+            Vector2 startPos = new Vector2(
+                platform.transform.position.x - platformWidth / 2,
+                platform.transform.position.y + platform.GetComponent<BoxCollider2D>().size.y);
+            coinGenerator.SpawnCoins(startPos, platformChoice + 1, platformWidth / platformChoice);
 
             // Move transform along so as to avoid overlaps; I did -something- wrong here, but eh.
             transform.position = new Vector3(
