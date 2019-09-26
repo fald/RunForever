@@ -99,26 +99,28 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         // Initial press
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) &&
-            (numJumps < maxJumps))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
+            && (numJumps < maxJumps) 
+            && (grounded || (!grounded && numJumps > 0)))
         {
             numJumps++;
             myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
         }
 
         // Holding
-        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && (!grounded))
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            && (!grounded)
+            && (jumpTimeCounter > 0)
+            && (numJumps == 1))
         {
-            if (jumpTimeCounter > 0)
-            {
-                myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
-            }
+            myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
+            jumpTimeCounter -= Time.deltaTime;
         }
         
         // Releasing
         // In this case we stop the spam-jump, and the jump length can only be modified
         // on the first jump in the chain.
+        // Don't think its necessary with the update to the holding portion.
         if ((Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)))
         {
             jumpTimeCounter = 0;
