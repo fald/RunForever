@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private ScoreManager scoreManager;
 
+    public DeathMenu deathCanvas;
+
     //public GameObject[] initialPlatforms;
     //public GameObject platforms;
     public Transform platforms;
@@ -33,9 +35,18 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        StartCoroutine("RestartGameCoroutine");
+        //StartCoroutine("RestartGameCoroutine");
+        scoreManager.scoreIncreasing = false;
+        player.gameObject.SetActive(false);
+        deathCanvas.gameObject.SetActive(true);
     }
 
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    /*
     public IEnumerator RestartGameCoroutine()
     {
         // could set player inactive then active after, but why. just lower the kill zone.
@@ -65,6 +76,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         scoreManager.score = 0;
         scoreManager.scoreIncreasing = true;
-        */
+        * /
     }
+    */
 }
