@@ -10,6 +10,25 @@ public class PauseMenu : MonoBehaviour
     public GameManager gm;
     public GameObject pauseMenu;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
+    {
+        if (pauseMenu.activeSelf)
+        {
+            ResumeGame();
+        } else
+        {
+            PauseGame();
+        }
+    }
+
     public void restart()
     {
         ResumeGame();
