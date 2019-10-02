@@ -25,6 +25,10 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            if (pickupSound.isPlaying)
+            {
+                pickupSound.Stop();
+            }
             pickupSound.Play();
             scoreManager.IncreaseScore(scoreAdd);
             this.gameObject.SetActive(false);
