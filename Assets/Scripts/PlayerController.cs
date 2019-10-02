@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public int maxJumps;
     public float fallMultiplier;
     public float lowFallMultiplier;
+    public AudioSource jumpSound;
+    public AudioSource deathSound;
 
     // Point to inc speed
     public float speedIncreaseMilestone;
@@ -83,7 +85,6 @@ public class PlayerController : MonoBehaviour
 
         Jump();
 
-
         myAnimator.SetFloat("Speed", moveSpeed);
         myAnimator.SetBool("Grounded", grounded);
     }
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "killbox")
         {
+            deathSound.Play();
             gameManager.RestartGame();
         }
     }
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour
             && (numJumps < maxJumps) 
             && (grounded || (!grounded && numJumps > 0)))
         {
+            jumpSound.Play();
             numJumps++;
             myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
         }
