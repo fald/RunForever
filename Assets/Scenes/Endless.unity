@@ -1351,7 +1351,7 @@ GameObject:
   - component: {fileID: 676598382}
   - component: {fileID: 676598383}
   m_Layer: 0
-  m_Name: Jump
+  m_Name: Jumpsound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 1002620719}
   - component: {fileID: 1002620720}
   m_Layer: 0
-  m_Name: Death
+  m_Name: DeathSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2417,7 +2417,7 @@ GameObject:
   - component: {fileID: 1589733790}
   - component: {fileID: 1589733791}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: CoinSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

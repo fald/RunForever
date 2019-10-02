@@ -8,10 +8,12 @@ public class PickUp : MonoBehaviour
     public float scoreAdd;
     public float scoreMult;
     private ScoreManager scoreManager;
+    private AudioSource pickupSound;
     
     void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
+        pickupSound = GameObject.Find("CoinSound").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            pickupSound.Play();
             scoreManager.IncreaseScore(scoreAdd);
             this.gameObject.SetActive(false);
         }
