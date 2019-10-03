@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator myAnimator;
 
+    public bool isInvulnerable;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -91,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "killbox")
+        if ((collision.gameObject.tag == "killbox") && (!isInvulnerable))
         {
             deathSound.Play();
             gameManager.RestartGame();

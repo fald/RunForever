@@ -61,6 +61,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -145,12 +146,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   moveSpeed: 0
-  initSpeed: 8
+  initSpeed: 6
   jumpForce: 15
   numJumps: 0
   maxJumps: 2
   fallMultiplier: 2.5
-  lowFallMultiplier: 2
+  lowFallMultiplier: 0
+  jumpSound: {fileID: 0}
+  deathSound: {fileID: 0}
   speedIncreaseMilestone: 0
   speedIncreaseAmount: 1
   speedIncreaseDistance: 100
@@ -160,8 +163,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 8234238664217110749}
   groundCheckRadius: 0.25
+  isInvulnerable: 0
 --- !u!95 &2828379282873567002
 Animator:
   serializedVersion: 3
