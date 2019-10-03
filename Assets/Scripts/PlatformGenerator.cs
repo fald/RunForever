@@ -6,6 +6,8 @@ using UnityEngine;
 // TODO: Further update platform spacing to take into account player movespeed.
 // TODO: Better coin placement
 // TODO: Coin placement bug; might be fixed by above todo. 'transform.position assign attempt for 'Coin(Clone)' is not valid. Input position is { NaN, NaN, 0.000000 }."
+// TODO: Better spike placement
+// TODO: For placement, can probably set coin/spike parents to current platform when chosen.
 
 public class PlatformGenerator : MonoBehaviour
 {
@@ -31,6 +33,7 @@ public class PlatformGenerator : MonoBehaviour
     private float heightChange;
 
     public CoinGenerator coinGenerator;
+    public SpikeGenerator spikeGenerator;
 
     void Start()
     {
@@ -67,6 +70,7 @@ public class PlatformGenerator : MonoBehaviour
                 platform.transform.position.x - platformWidth / 2,
                 platform.transform.position.y + platform.GetComponent<BoxCollider2D>().size.y);
             coinGenerator.SpawnCoins(startPos, platformChoice + 1, platformWidth / platformChoice);
+            spikeGenerator.SpawnSpikes(startPos + 1 * Vector2.right, 3, 2);
 
             // Move transform along so as to avoid overlaps; I did -something- wrong here, but eh.
             transform.position = new Vector3(
