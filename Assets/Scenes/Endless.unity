@@ -3467,8 +3467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointPool: {fileID: 817205880}
   invulnerablePool: {fileID: 875372703}
-  threshold_points: 50
-  threshold_invulnerable: 60
+  threshold_points: 0.2
+  threshold_invulnerable: 0.3
 --- !u!1 &1976577127
 GameObject:
   m_ObjectHideFlags: 0
