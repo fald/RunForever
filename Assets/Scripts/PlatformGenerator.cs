@@ -69,7 +69,7 @@ public class PlatformGenerator : MonoBehaviour
             Vector2 startPos = new Vector2(
                 platform.transform.position.x - platformWidth / 2,
                 platform.transform.position.y + platform.GetComponent<BoxCollider2D>().size.y);
-            coinGenerator.SpawnCoins(startPos, platformChoice + 1, platformWidth / platformChoice);
+            coinGenerator.SpawnCoins(startPos, platformChoice + 1, platformWidth / Mathf.Max(1, platformChoice));
             spikeGenerator.SpawnSpikes(startPos + 1 * Vector2.right, 3, 2);
 
             // Move transform along so as to avoid overlaps; I did -something- wrong here, but eh.
