@@ -19,8 +19,10 @@ public class PowerUpManager : MonoBehaviour
     public void Start()
     {
         // some trouble with finding these for whatever reason
-        //scoreMgr = FindObjectOfType<ScoreManager>();
-        //playerCtrl = FindObjectOfType<PlayerController>();
+        scoreMgr = GameObject.Find("Canvas").GetComponentInChildren<ScoreManager>();
+        //(ScoreManager) GameObject.Find("Canvas/Score Manager");
+        playerCtrl = GameObject.Find("Player").GetComponentInChildren<PlayerController>();
+            //FindObjectOfType<PlayerController>();
     }
 
     public void Awake()

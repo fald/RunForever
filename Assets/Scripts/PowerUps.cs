@@ -8,7 +8,12 @@ public class PowerUps : MonoBehaviour
     public bool invulnerable;
     public float duration;
 
-    public PowerUpManager powerMgr;
+    private PowerUpManager powerMgr;
+
+    private void Start()
+    {
+        powerMgr = GameObject.FindObjectOfType<PowerUpManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
