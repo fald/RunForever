@@ -8,6 +8,7 @@ using UnityEngine;
 // TODO: Coin placement bug; might be fixed by above todo. 'transform.position assign attempt for 'Coin(Clone)' is not valid. Input position is { NaN, NaN, 0.000000 }."
 // TODO: Better spike placement
 // TODO: For placement, can probably set coin/spike parents to current platform when chosen.
+// TODO: Disable spikes 'n sheeit.
 
 public class PlatformGenerator : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class PlatformGenerator : MonoBehaviour
 
     public CoinGenerator coinGenerator;
     public SpikeGenerator spikeGenerator;
+    public PowerupGenerator powerupGenerator;
+    public float powerupHeight;
 
     void Start()
     {
@@ -70,7 +73,11 @@ public class PlatformGenerator : MonoBehaviour
                 platform.transform.position.x - platformWidth / 2,
                 platform.transform.position.y + platform.GetComponent<BoxCollider2D>().size.y);
             coinGenerator.SpawnCoins(startPos, platformChoice + 1, platformWidth / Mathf.Max(1, platformChoice));
-            spikeGenerator.SpawnSpikes(startPos + 1 * Vector2.right, 3, 2);
+            spikeGenerator.SpawnSpikes(startPos + 1 * Vector2.right, 2, 3);
+            powerupGenerator.SpawnPowerup(
+                startPos 
+                + Vector2.right * platformWidth * 1.1f
+                + Vector2.up * powerupHeight);
 
             // Move transform along so as to avoid overlaps; I did -something- wrong here, but eh.
             transform.position = new Vector3(
