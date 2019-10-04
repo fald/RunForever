@@ -1359,6 +1359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c619b9630ef7a24dbc7d795908baf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreMgr: {fileID: 634456708}
+  playerCtrl: {fileID: 576794292}
 --- !u!4 &624057335
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,7 +1373,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634456706
 GameObject:
@@ -2007,85 +2009,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1009783666
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5702404107885895766, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: powerMgr
-      value: 
-      objectReference: {fileID: 624057334}
-    - target: {fileID: 5415622521688290737, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_Name
-      value: Green Gem
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673438851266431126, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132811417366921770, guid: 4dcd097a60ffe6a429610e20ebd21148,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4dcd097a60ffe6a429610e20ebd21148, type: 3}
 --- !u!1001 &1039829108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2208,16 +2131,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5998136677707989325, guid: 6bfd082a9fdab4a49a395583819f96c6,
-        type: 3}
-      propertyPath: powerMgr
-      value: 
-      objectReference: {fileID: 624057334}
     - target: {fileID: 103207934396734451, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
       propertyPath: m_Name
       value: Orange Gem
       objectReference: {fileID: 0}
+    - target: {fileID: 5998136677707989325, guid: 6bfd082a9fdab4a49a395583819f96c6,
+        type: 3}
+      propertyPath: powerMgr
+      value: 
+      objectReference: {fileID: 624057334}
     - target: {fileID: 153531620692715323, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2226,7 +2149,7 @@ PrefabInstance:
     - target: {fileID: 153531620692715323, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 153531620692715323, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
@@ -2256,7 +2179,7 @@ PrefabInstance:
     - target: {fileID: 153531620692715323, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 153531620692715323, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
@@ -2276,7 +2199,7 @@ PrefabInstance:
     - target: {fileID: 2575869696148627142, guid: 6bfd082a9fdab4a49a395583819f96c6,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bfd082a9fdab4a49a395583819f96c6, type: 3}
@@ -2519,7 +2442,7 @@ Transform:
   - {fileID: 339477931}
   - {fileID: 1835141182}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1267601339
 MonoBehaviour:
