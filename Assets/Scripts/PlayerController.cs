@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO: The jumping code is ugly, fix it.
+// TODO: Also add coyote-time to the jumps
 
 public class PlayerController : MonoBehaviour
 {
